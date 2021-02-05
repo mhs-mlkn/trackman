@@ -13,9 +13,9 @@ export default class Api<T extends { id: number }> {
     return new Promise<T[]>((resolve, reject) => {
       try {
         const items = this.db.getAll();
-        return resolve(items);
+        resolve(items);
       } catch (error) {
-        return reject(error);
+        reject(error);
       }
     });
   }
@@ -25,9 +25,9 @@ export default class Api<T extends { id: number }> {
     return new Promise<T>((resolve, reject) => {
       try {
         const item = this.db.get(id);
-        return resolve(item);
+        resolve(item);
       } catch (error) {
-        return reject(error);
+        reject(error);
       }
     });
   }
@@ -37,9 +37,9 @@ export default class Api<T extends { id: number }> {
     return new Promise<T>((resolve, reject) => {
       try {
         const item = this.db.addItem(data);
-        return resolve(item);
+        resolve(item);
       } catch (error) {
-        return reject(error);
+        reject(error);
       }
     });
   }
@@ -49,9 +49,9 @@ export default class Api<T extends { id: number }> {
     return new Promise<T>((resolve, reject) => {
       try {
         const item = this.db.editItem(data);
-        return resolve(item);
+        resolve(item);
       } catch (error) {
-        return reject(error);
+        reject(error);
       }
     });
   }
@@ -61,9 +61,9 @@ export default class Api<T extends { id: number }> {
     return new Promise<void>((resolve, reject) => {
       try {
         this.db.deleteItem(id);
-        return resolve();
+        resolve();
       } catch (error) {
-        return reject(error);
+        reject(error);
       }
     });
   }
